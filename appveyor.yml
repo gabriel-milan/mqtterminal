@@ -38,8 +38,8 @@ install:
 test_script:
   # we don't run the "test phase" when doing deploys
   - if [%APPVEYOR_REPO_TAG%]==[false] (
-    cargo build --target %TARGET% &&
-    cargo build --target %TARGET% --release &&
+    cargo build --target %TARGET% --features vendored-openssl &&
+    cargo build --target %TARGET% --release --features vendored-openssl &&
     cargo clippy -- -D warnings
     )
 

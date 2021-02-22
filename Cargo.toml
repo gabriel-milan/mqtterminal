@@ -15,3 +15,6 @@ chrono = "0.4"
 [[bin]]
 name = "mqttterminal-server"
 path = "src/main.rs"
+
+[features]
+vendored-openssl = ["openssl/vendored"]

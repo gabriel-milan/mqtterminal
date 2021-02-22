@@ -3,8 +3,8 @@
 set -ex
 
 main() {
-    cross build --target $TARGET
-    cross build --target $TARGET --release
+    cross build --target $TARGET --features vendored-openssl
+    cross build --target $TARGET --release --features vendored-openssl
 
     if [ ! -z $DISABLE_TESTS ]; then
         return
