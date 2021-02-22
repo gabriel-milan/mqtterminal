@@ -10,7 +10,7 @@ main() {
         return
     fi
 
-    cross clippy -- -D warnings
+    cross clippy --features vendored-openssl -- -D warnings
 }
 
 # we don't run the "test phase" when doing deploys
