@@ -1,0 +1,19 @@
+language: rust
+sudo: false
+dist: trusty
+matrix:
+  fast_finish: true
+  include:
+    - rust: stable
+      env: OBJECT=server
+    - rust: stable
+      env: OBJECT=client
+before_script:
+  - rustup component add clippy
+script:
+  - cd $OBJECT && cargo clippy -- -D warnings
+cache:
+  apt: true
+  directories:
+    - $OBJECT/target/debug/deps
+    - $OBJECT/target/debug/build
