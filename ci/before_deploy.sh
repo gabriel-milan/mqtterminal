@@ -17,7 +17,7 @@ main() {
 
     test -f Cargo.lock || cargo generate-lockfile
 
-    cross rustc --bin $CRATE_NAME --target $TARGET --release -- -C lto
+    cross rustc --bin $CRATE_NAME --target $TARGET --release --features vendored-openssl -- -C lto
 
     cp target/$TARGET/release/$CRATE_NAME $stage/
 
